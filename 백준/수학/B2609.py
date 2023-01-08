@@ -1,27 +1,3 @@
-# # 정의 이용 - 틀린 풀이
-# n , m = map(int, input().strip().split(' '))
-# n_div = []
-# m_div = []
-# n_mul = []
-# m_mul = []
-# # 최대공약수
-# for i in range(1, n+1):
-#     if n % i == 0:
-#         n_div.append
-# for j in range(1, m+1):
-#     if m % j == 0:
-#         m_div.append
-# gcd = max(list((set(n_div) & set(m_div))))
-# print(gcd)        
-# # 최소공배수
-# x = 1
-# while n_mul & m_mul == []:
-#     n_mul.append(n * x)
-#     m_mul.append(m * x)
-#     x +=1
-# lcm_list = list(set(n_mul) & set(m_mul))
-# lcm = lcm_list[0]
-# print(lcm)
 
 # # 정의이용 - 맞는 풀이
 # # 여기서는 n>m 일 경우에도 해줘야 함
@@ -74,16 +50,47 @@
 # print(gcd)
 # print(lcm)
 
-# 유클리드 호제법 이용
-n, m = map(int, input().split(' '))
+# # 유클리드 호제법 이용
+# n, m = map(int, input().split(' '))
 
-def gcd(n, m):
-    while m > 0:
-        n, m = m, n%m
-    return n
-def lcm(n, m):
-    return int((n * m) / gcd(n ,m))
+# def gcd(n, m):
+#     while m > 0:
+#         n, m = m, n%m
+#     return n
+# def lcm(n, m):
+#     return int((n * m) / gcd(n ,m))
 
-print(gcd(n, m))
-print(lcm(n, m))
+# print(gcd(n, m))
+# print(lcm(n, m))
 
+# 정의 이용 - 틀린 풀이
+n , m = map(int, input().strip().split(' '))
+n_div = []
+m_div = []
+n_mul = []
+m_mul = []
+# 최대공약수
+for i in range(1, n+1):
+    if n % i == 0:
+        n_div.append(i)
+for j in range(1, m+1):
+    if m % j == 0:
+        m_div.append(j)
+print(n_div, m_div)
+n_div = set(n_div)
+m_div = set(m_div)
+tmp = n_div.intersection(m_div)
+
+print(tmp)
+
+gcd = max(list(tmp))
+print(gcd)        
+# # 최소공배수
+# x = 1
+# while n_mul & m_mul == []:
+#     n_mul.append(n * x)
+#     m_mul.append(m * x)
+#     x +=1
+# lcm_list = list(set(n_mul) & set(m_mul))
+# lcm = lcm_list[0]
+# print(lcm)

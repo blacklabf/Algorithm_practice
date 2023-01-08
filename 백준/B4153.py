@@ -7,3 +7,5 @@ while tri != [0, 0, 0]:
         print("wrong")
     tri = list(map(int, input().split()))
     tri.sort()
+
+# 이렇게 해도 되고 while True: 방법도 있음 
