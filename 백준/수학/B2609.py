@@ -81,16 +81,17 @@ n_div = set(n_div)
 m_div = set(m_div)
 tmp = n_div.intersection(m_div)
 
-print(tmp)
-
 gcd = max(list(tmp))
-print(gcd)        
-# # 최소공배수
-# x = 1
-# while n_mul & m_mul == []:
-#     n_mul.append(n * x)
-#     m_mul.append(m * x)
-#     x +=1
-# lcm_list = list(set(n_mul) & set(m_mul))
-# lcm = lcm_list[0]
-# print(lcm)
+print(gcd)  
+
+# 최소공배수
+x = 1
+while len(set(n_mul) & set(m_mul)) == 0:
+    n_mul.append(n * x)
+    m_mul.append(m * x)
+    x +=1
+
+lcm_list = list(set(n_mul) & set(m_mul))
+lcm = lcm_list[0]
+print(lcm)
+
