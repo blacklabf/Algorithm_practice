@@ -1,1 +1,1 @@
-# algorithm
+# Algorithms solved in python
