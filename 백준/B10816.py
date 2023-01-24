@@ -2,9 +2,10 @@
 # 수정한 풀이 -> 이것도 ans가 0으로만 나옴
 import sys ; input = sys.stdin.readline
 n = int(input().strip())
-nList = input().strip().split()
+nList = list(map(int, input().strip().split()))
 m = int(input().strip())
 mList = list(map(int, input().strip().split()))
+
 
 
 ans =[0]* m
