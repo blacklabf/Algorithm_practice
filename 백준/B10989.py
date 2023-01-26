@@ -1,5 +1,5 @@
 # 수 정렬하기3
-# list의 천만개정도의 원소를 만개정도로 바꿔줌
+# list의 천만개정도의 원소를 만개정도로 바꿔줌 -> 메모리초과 
 import sys ; input = sys.stdin.readline
 n = int(input())
 num_list = [0] * 10001
