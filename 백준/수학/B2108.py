@@ -19,16 +19,20 @@ print(N_list[math.trunc(N/2)])
 
 # 최빈값
 dic = {}
+
 for num in N_list:
     if num not in dic:
         dic[num] = 1
     else:
         dic[num] = dic[num] + 1
-sDic = sorted(dic.items(), key=lambda x:(-x[1], x[0]))
-if sDic[0][1] == sDic[1][1]:
-    print(sDic[1][0])
+sDic = dict(sorted(dic.items(), key=lambda x:x[1], reverse =True))
+sDicKey = list(sDic.keys())
+sDicValue = list(sDic.values())
+if sDicValue[0] == sDicValue[1]:
+    print(sDicKey[1])
 else :
-    print(sDic[0][0])
+    print(sDicKey[0])
+
 
 # 범위
 num_max = max(N_list)
