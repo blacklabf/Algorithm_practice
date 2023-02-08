@@ -1,34 +1,31 @@
-# 백준 숫자카드
-# 이진탐색
-# 여기서는 무조건 split 해야 함, str로 받으면 안됨
-import sys; input = sys.stdin.readline
-n = int(input()) # 숫자 카드의 개수 : N
-nList = list(map(int, input().strip().split())) # 상근이가 가지고 있는 숫자카드
-m = int(input()) # 정수 M개
-mList = list(map(int, input().strip().split())) # 상근이가 가지고 있는지 확인
+# 백준 숫자카드 10815번 이진탐색 풀이
+import sys ; input = sys.stdin.readline
 
-ans = []
+n = int(input())
+nList = list(map(int, input().strip().split()))
+m = int(input())
+mList = list(map(int, input().strip().split()))
+answer = []
 
-# 이진 탐색 (반복문)
-def binary_search(array, target, start, end):
-    while start <= end:
-        mid = (start + end) // 2
-        if array[mid] == target:
-            return mid
-        elif array[mid] > target:
-            end = mid - 1
+nList.sort()
+
+def lower_bound(arr, val):
+    lo = 0
+    hi = len(nList)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if arr[mid] < val :
+            lo = mid + 1
         else:
-            start = mid + 1
-    return None
+            hi = mid
+    return lo
 
-for num in mList:
-    result = binary_search(nList, num, 0, n - 1)
-    if result == None:
-        ans.append(0)
+for x in mList:
+    idx = lower_bound(nList, x)
+    if idx < n and nList[idx] == x:
+        answer.append(1)
     else:
-        ans.append(1)
+        answer.append(0)
 
-print(*ans, sep=' ')
-
-
+print(*answer, sep=' ')
 
