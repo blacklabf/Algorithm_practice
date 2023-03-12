@@ -5,7 +5,10 @@ for i in range(1, t+1):
     day = int(input())
     aList = list(map(int, input().strip().split()))
     ans = 0
-    for j in range(day-1):
-        if aList[j] < max(aList[j+1:]):
-            ans += (max(aList[j+1:]) - aList[j])
+    max_val = aList[-1] # aList의 마지막 값 / 이전의 최댓값
+    for j in range(day-2, -1 , -1):
+        if aList[j] < max_val :
+            ans += (max_val - aList[j])
+        else :
+            max_val = aList[j] # 최댓값 갱신
     print('#{} {}'.format(i, ans))
